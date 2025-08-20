@@ -90,10 +90,6 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
-    - name: SSH connection to Actions
-      if: ${{ github.event.inputs.ssh_connection == 'true' }}
-      uses: mxschmitt/action-tmate@v3
-
     - name: Cache
       uses: klever1988/cachewrtbuild@main
       with:
@@ -143,6 +139,10 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+
+- name: SSH connection to Actions
+      if: ${{ github.event.inputs.ssh_connection == 'true' }}
+      uses: mxschmitt/action-tmate@v3
 
     - name: Compile the firmware
       id: compile
