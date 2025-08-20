@@ -140,7 +140,7 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
-- name: SSH connection to Actions
+    - name: SSH connection to Actions
       if: ${{ github.event.inputs.ssh_connection == 'true' }}
       uses: mxschmitt/action-tmate@v3
 
