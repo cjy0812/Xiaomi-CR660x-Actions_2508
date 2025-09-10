@@ -1,7 +1,14 @@
 echo '--开始部署环境--'
 sleep 3
 sudo apt update
-sudo -E apt-get -qq install $(curl -fsSL https://is.gd/depends_ubuntu_2204)
+sudo apt full-upgrade -y
+sudo -E apt-get -qq install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
+bzip2 ccache clang cmake cpio curl device-tree-compiler flex gawk gcc-multilib g++-multilib gettext \
+genisoimage git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libfuse-dev libglib2.0-dev \
+libgmp3-dev libltdl-dev libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libpython3-dev \
+libreadline-dev libssl-dev libtool llvm lrzsz msmtp ninja-build p7zip p7zip-full patch pkgconf \
+python3 python3-pyelftools python3-setuptools qemu-utils rsync scons squashfs-tools subversion \
+swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
 sudo -E apt-get -qq install libfuse-dev
 sudo -E apt-get -qq install rename
 sudo -E apt-get -qq install time
@@ -13,7 +20,7 @@ echo '--下载源码--'
 sleep 3
 git clone --depth 1 https://github.com/coolsnowwolf/lede -b master
 cd lede
-bash -c "$(curl -L https://github.com/No06/Xiaomi-CR660x-Actions/raw/main/diy-part1.sh)"
+bash -c "$(curl -L https://github.com/cjy0812/Xiaomi-CR660x-Actions_2508/raw/main/diy-part1.sh)"
 
 echo '--更新软件源--'
 sleep 3
@@ -23,9 +30,9 @@ sleep 3
 echo '--导入配置--'
 sleep 3
 rm .config
-wget https://github.com/No06/Xiaomi-CR660x-Actions/raw/main/.config
-wget https://github.com/No06/Xiaomi-CR660x-Actions/raw/main/overclock.patch
-wget https://github.com/No06/Xiaomi-CR660x-Actions/raw/main/overclock_5_10.patch
+wget https://github.com/cjy0812/Xiaomi-CR660x-Actions_2508/raw/main/.config
+wget https://github.com/cjy0812/Xiaomi-CR660x-Actions_2508/raw/main/overclock.patch
+wget https://github.com/cjy0812/Xiaomi-CR660x-Actions_2508/raw/main/overclock_5_10.patch
 mv overclock.patch target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch
 mv overclock_5_10.patch target/linux/ramips/patches-5.10/322-mt7621-fix-cpu-clk-add-clkdev.patch
 make defconfig
