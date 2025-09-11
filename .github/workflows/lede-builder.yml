@@ -19,10 +19,16 @@ on:
   workflow_dispatch:
     inputs:
       cpu_overclock:
-        description: '超频 (默认880Mhz 不能带小数点!)'
+        description: "CPU 超频频率 (默认880MHz)，可选预设或手动输入"
         required: true
-        default: '1100'
-        type: number
+        default: "1100"
+        type: string
+        # 这里提供几个常用预设值，用户也可以直接输入其它数值
+        options:
+          - "880"
+          - "1000"
+          - "1100"
+          - "1200"
       release:
         description: '上传到release'
         required: false
