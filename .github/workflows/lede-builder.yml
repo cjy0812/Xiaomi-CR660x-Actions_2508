@@ -29,9 +29,13 @@ on:
         default: true
         type: boolean
       ssh_connection:
-        description: 'Enable SSH connection to Actions'
+        description: "是否开启 SSH 调试"
         required: false
-        default: 'false'
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
 
 
 env:
