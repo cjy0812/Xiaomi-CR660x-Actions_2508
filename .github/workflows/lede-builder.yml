@@ -19,7 +19,7 @@ on:
   workflow_dispatch:
     inputs:
       cpu_overclock:
-        description: '超频 (默认880Mhz)'
+        description: '超频 (默认880Mhz 不能带小数点!)'
         required: true
         default: '1100'
         type: number
@@ -147,13 +147,7 @@ jobs:
     - name: SSH connection to Actions
       if: ${{ github.event.inputs.ssh_connection == 'true' }}
       uses: mxschmitt/action-tmate@v3
-
-    - name: Upload .config before make
-      uses: actions/upload-artifact@main
-      with:
-        name: config_before_make_${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-        path: openwrt/.config
-
+      
     - name: Compile the firmware
       id: compile
       run: |
