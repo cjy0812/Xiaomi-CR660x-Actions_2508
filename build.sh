@@ -1,8 +1,8 @@
 echo '--开始部署环境--'
 sleep 3
-sudo -E apt-get update -y
-sudo -E apt-get full-upgrade -y
-sudo -E apt-get install -y \
+sudo -E apt-get -qq update -y
+sudo -E apt-get -qq full-upgrade -y
+sudo -E apt-get -qq install -y \
   build-essential clang flex bison g++ gawk gcc-multilib g++-multilib \
   gettext git libncurses5-dev libssl-dev python3 rsync unzip wget zlib1g-dev \
   qemu-utils ccache libelf-dev rename time
