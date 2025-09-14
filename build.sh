@@ -1,7 +1,6 @@
 echo '--开始部署环境--'
 sleep 3
 sudo apt update
-sudo -E apt-get -qq install $(curl -fsSL https://is.gd/depends_ubuntu_2204)
 sudo -E apt-get -qq install libfuse-dev
 sudo -E apt-get -qq install rename
 sudo -E apt-get -qq install time
@@ -37,4 +36,5 @@ echo '--开始编译--'
 sleep 3
 
 make -j$(nproc) || make -j1 || make -j1 V=s
+
 
