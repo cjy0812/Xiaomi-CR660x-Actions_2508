@@ -65,6 +65,8 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+        sudo apt purge snapd
+        sudo rm -rf /var/cache/snapd /snap /var/snap /var/lib/snapd
         sudo docker image prune --all --force
         sudo apt-get -qq update -y
         sudo apt-get -qq full-upgrade -y
