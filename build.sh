@@ -1,18 +1,11 @@
 echo '--开始部署环境--'
 sleep 3
-sudo -E apt-get -qq update -y
-sudo -E apt-get -qq full-upgrade -y
-sudo -E apt-get -qq install -y \
-ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
-bzip2 ccache clang cmake cpio curl device-tree-compiler flex gawk gcc-multilib \
-g++ g++-multilib gettext genisoimage git gperf haveged help2man intltool \
-libc6-dev-i386 libelf-dev libfuse-dev libglib2.0-dev libgmp3-dev libltdl-dev \
-libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libpython3-dev \
-libreadline-dev libssl-dev libtool llvm lrzsz msmtp ninja-build p7zip \
-p7zip-full patch pkgconf python3 python3-pyelftools python3-setuptools \
-qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs \
-upx-ucl unzip vim wget xmlto xxd zlib1g-dev rename time
-sudo -E apt-get -qq autoremove --purge -y
+sudo apt update
+sudo -E apt-get -qq install $(curl -fsSL https://is.gd/depends_ubuntu_2204)
+sudo -E apt-get -qq install libfuse-dev
+sudo -E apt-get -qq install rename
+sudo -E apt-get -qq install time
+sudo -E apt-get -qq autoremove --purge
 sudo -E apt-get -qq clean
 df -Th
 
@@ -44,3 +37,4 @@ echo '--开始编译--'
 sleep 3
 
 make -j$(nproc) || make -j1 || make -j1 V=s
+
