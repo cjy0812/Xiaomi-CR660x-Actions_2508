@@ -1,0 +1,12 @@
+2025-09-16-2100
+# Rmove app
+-锐捷认证  #非校园网环境
+-Openlist  #太占空间
+-upnp  #多NAT环境无用
+-Socat #同上
+
+bug！！！ update？
+!终端 #显示异常
+Turbo ACC #old
+
+
