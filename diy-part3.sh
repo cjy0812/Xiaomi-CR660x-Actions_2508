@@ -17,7 +17,7 @@ git clone https://github.com/sirpdboy/luci-app-adguardhome.git package/adguardho
 
 # 添加主题
 [ -d package/luci-theme-design ] && rm -rfv package/luci-theme-design
-git clone https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
+git clone -b js https://github.com/0x676e67/luci-theme-design.git package/luci-theme-design
 
 [ -d package/luci-theme-argon ] && rm -rfv package/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
