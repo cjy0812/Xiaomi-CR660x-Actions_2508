@@ -5,6 +5,9 @@ set -eux
 rm -rfv ./package/lean/luci-theme-argon
 rm -rfv ./package/lean/luci-theme-design
 
+Add-Turboacc
+curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
+
 # 添加 Apps
 for pkg in luci-app-wizard netspeedtest lucky adguardhome; do
     [ -d package/$pkg ] && rm -rfv package/$pkg
