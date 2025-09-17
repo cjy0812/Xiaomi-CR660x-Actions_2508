@@ -20,4 +20,4 @@ git clone https://github.com/sirpdboy/luci-app-adguardhome.git package/adguardho
 git clone -b js https://github.com/0x676e67/luci-theme-design.git package/luci-theme-design
 
 [ -d package/luci-theme-argon ] && rm -rfv package/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
