@@ -4,3 +4,7 @@
 debugging...
 
 
+
+Tips：
+DIY_3是feeds更新前（下载自定义app到package）
+DIY_4是feeds之后（预期用途删除feeds下载与自定义包冲突，删除feed包让make编译自定义包）
